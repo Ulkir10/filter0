@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fef8f8;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #ddd;
+    }
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      justify-content: space-between;
+    }
+    .search-bar input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 16px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+    .card h4 {
+      margin: 10px 0 5px;
+    }
+    .card p {
+      margin: 0;
+      color: #555;
+    }
+    .navbar-center {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar-center button {
+      background: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .Xaridlar{
+      color: #EF400F;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div><strong>MARS IT School</strong></div>
+    <div class="navbar-center">
+      <button><a href="index.html">🏠</a></button>
+      <button>Learning</button>
+      <button><a href="mars.html">Shop</a></button>
+    </div>
+    <div>🛒 Shop</div>
+  </div>
+  <div class="search-bar">
+     <h1 class="magazin">🛒Magazin</h1>
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <h1 class="Xaridlar">⌚ Xaridlar tarixi</h1>
+  </div>
+
+  <div class="grid" id="productGrid">
+    <div class="card">
+      <img src="image 10 (2).png" alt="Mars rug">
+      <h4>Mars rug</h4>
+      <p>100 Coins</p>
+    </div>
+    <div class="card">
+      <img src="image 22 (1).png" alt="Keyboard sticker">
+      <h4>Keyboard sticker</h4>
+      <p>49 Coins</p>
+    </div>
+    <div class="card">
+      <img src="image 23 (1).png" alt="Smart watch">
+      <h4>Smart watch</h4>
+      <p>899 Coins</p>
+    </div>
+    <div class="card">
+      <img src="image 24 (1).png" alt="Wireless keyboard">
+      <h4>Wireless keyboard</h4>
+      <p>350 Coins</p>
+    </div>
+    <div class="card">
+      <img src="image 25 (1).png" alt="Mouse">
+      <h4>Mouse</h4>
+      <p>359 Coins</p>
+    </div>
+    <div class="card">
+      <img src="image 26 (1).png" alt="AirPods">
+      <h4>AirPods</h4>
+      <p>499 Coins</p>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const productGrid = document.getElementById("productGrid");
+    const cards = productGrid.getElementsByClassName("card");
+
+    searchInput.addEventListener("input", () => {
+      const searchValue = searchInput.value.toLowerCase();
+      for (let card of cards) {
+        const productName = card.querySelector("h4").innerText.toLowerCase();
+        card.style.display = productName.includes(searchValue) ? "block" : "none";
+      }
+    });
+  </script>
+</body>
+</html>
